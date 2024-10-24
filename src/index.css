@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-4xl border-b;
+  }
+  h2 {
+    @apply text-3xl border-b;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+}
+
+blockquote {
+  @apply pl-4 border-l italic;
+}

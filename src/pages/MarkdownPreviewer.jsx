@@ -46,10 +46,13 @@ const MarkdownPreviewer = () => {
   };
 
   return (
-    <div className='flex flex-col md:gap-8 gap-4 items-center justify-center md:py-12 pt-12 pb-4 px-4'>
-      <textarea className='w-full h-64 max-w-xl bg-neutral-100 px-6' value={text} onChange={handleTextChange} />
-      <div className='w-full h-auto p-8 bg-neutral-100 max-w-4xl'>
-        <div dangerouslySetInnerHTML={createMarkup()} />
+    <div className='border border-red-500'>
+      <div className='fixed h-full w-[50%] border border-blue-500'>
+        <h1>Welcome to nowhere!</h1>
+        <textarea className='w-full h-full max-h-[70%] bg-neutral-100 px-6 border' id='editor' value={text} onChange={handleTextChange} />
+      </div>
+      <div className='pl-[50%] w-full overflow-auto p-8 bg-neutral-100 border'>
+        <div id='preview' className='space-y-4' dangerouslySetInnerHTML={createMarkup()} />
       </div>
     </div>
   )
