@@ -1,0 +1,74 @@
+h1 {
+  @apply text-4xl border-b;
+}
+h2 {
+  @apply text-3xl border-b;
+}
+h3 {
+  @apply text-2xl;
+}
+h4 {
+  @apply text-xl;
+}
+blockquote {
+  @apply pl-4 border-l border-stone-400 italic;
+}
+pre {
+  @apply bg-stone-100;
+}
+a {
+  @apply text-indigo-500 underline;
+}
+ul {
+  @apply list-disc;
+}
+ul ul {
+  list-style-type: circle;
+  @apply ml-4;
+}
+ul ul ul {
+  list-style-type: square;
+}
+ol {
+  @apply list-decimal;
+}
+li {
+  text-align: -webkit-match-parent;
+  unicode-bidi: isolate;
+  @apply list-item;
+}
+table {
+  text-indent: initial;
+  unicode-bidi: isolate;
+  @apply table border-collapse box-border border-spacing-2;
+}
+thead {
+  unicode-bidi: isolate;
+  @apply table-header-group bg-neutral-100 align-middle border-inherit;
+}
+tr {
+  vertical-align: inherit;
+  unicode-bidi: isolate;
+  border-color: inherit;
+  @apply table-row;
+}
+th {
+  vertical-align: inherit;
+  unicode-bidi: isolate;
+  @apply table-cell font-semibold text-center;
+}
+td {
+  vertical-align: inherit;
+  unicode-bidi: isolate;
+  @apply table-cell;
+}
+#preview td,
+#preview th {
+  @apply border border-neutral-200 px-5 py-1;
+}
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  unicode-bidi: isolate;
+  border-color: inherit;
+}

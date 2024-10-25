@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { marked } from "https://esm.sh/marked@4.0.12";
+import '../css/markdown-previewer.css'
 
 const initialMarkdown = `
 # Welcome to my React Markdown Previewer!
@@ -66,9 +67,9 @@ const MarkdownPreviewer = () => {
           <h1 className='border-none'>FFC Markdown Previewer</h1>
           <p>Crafted with ♥ by Frederick Moreno</p>
         </div>
-        <div className='h-full max-h-[80%] bg-stone-200 p-2 rounded-[1.2rem]'>
+        <div className='h-full max-h-[86%] bg-stone-200 p-2 rounded-[1.4rem]'>
           <p className='font-semibold leading-none pb-2 px-3'>Editor</p>
-          <textarea className='w-full h-[95%] bg-stone-100 rounded-2xl px-6 border custom-scrollbar' id='editor' value={text} onChange={handleTextChange} />
+          <textarea className='w-full h-[95.4%] bg-stone-100 rounded-2xl px-6 border custom-scrollbar' id='editor' value={text} onChange={handleTextChange} />
         </div>
       </div>
       <div className='pl-[50%] w-full overflow-auto'>
