@@ -7,7 +7,16 @@ const initialMarkdown = `
 ## This is a sub-heading...
 ### And here's some other cool stuff:
 
-Heres some code, \`<div></div>\`, between 2 backticks.
+Here's some code, \`<div></div>\`, between 2 backticks.
+
+\`\`\`javascript
+// this is multi-line code:
+
+function anotherExample(firstLine, lastLine) {
+    return multiLineCode;
+  }
+}
+\`\`\`
 
 You can also make text **bold**... whoa!
 Or _italic_.
@@ -46,15 +55,21 @@ const MarkdownPreviewer = () => {
   };
 
   return (
-    <div className='border border-red-500'>
-      <div className='fixed h-full w-[50%] border border-blue-500'>
-        <h1>Welcome to nowhere!</h1>
-        <textarea className='w-full h-full max-h-[70%] bg-neutral-100 px-6 border' id='editor' value={text} onChange={handleTextChange} />
+    <>
+      <div className='fixed h-full w-[50%] px-12 py-12 space-y-6'>
+        <div>
+          <h1 className='border-none'>FFC Markdown Previewer</h1>
+          <p>Crafted with ♥ by Frederick Moreno</p>
+        </div>
+        <div className='h-full max-h-[80%] bg-stone-200 p-2 rounded-[1.2rem]'>
+          <p className='font-semibold leading-none pb-2 px-3'>Editor</p>
+          <textarea className='w-full h-[95%] bg-stone-100 rounded-2xl px-6 border custom-scrollbar' id='editor' value={text} onChange={handleTextChange} />
+        </div>
       </div>
-      <div className='pl-[50%] w-full overflow-auto p-8 bg-neutral-100 border'>
-        <div id='preview' className='space-y-4' dangerouslySetInnerHTML={createMarkup()} />
+      <div className='pl-[50%] w-full overflow-auto'>
+        <div id='preview' className='space-y-4 px-10 bg-white py-10 my-4 mr-3 rounded-2xl' dangerouslySetInnerHTML={createMarkup()} />
       </div>
-    </div>
+    </>
   )
 }
 

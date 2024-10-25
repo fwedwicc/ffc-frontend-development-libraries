@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply bg-stone-100;
+  }
   h1 {
     @apply text-4xl border-b;
   }
@@ -12,8 +15,33 @@
   h3 {
     @apply text-2xl;
   }
+  h4 {
+    @apply text-xl;
+  }
+  blockquote {
+    @apply pl-4 border-l italic;
+  }
 }
-
-blockquote {
-  @apply pl-4 border-l italic;
+@layer components {
+  .custom-scrollbar {
+    overflow-y: auto;
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply rounded-lg bg-transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply rounded-lg bg-neutral-300;
+  }
+  .invisible-scrollbar::-webkit-scrollbar {
+    width: 1px;
+  }
+  .invisible-scrollbar::-webkit-scrollbar-track {
+    @apply rounded-sm bg-transparent;
+  }
+  .invisible-scrollbar::-webkit-scrollbar-thumb {
+    @apply rounded-sm bg-transparent;
+  }
 }
