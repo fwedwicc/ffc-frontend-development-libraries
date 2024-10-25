@@ -54,6 +54,11 @@ const MarkdownPreviewer = () => {
     return { __html: marked(text) };
   };
 
+  marked.setOptions({
+    gfm: true, // enables GitHub Flavored Markdown
+    breaks: true // optionally allows carriage returns to be rendered as <br>
+  });
+
   return (
     <>
       <div className='fixed h-full w-[50%] px-12 py-12 space-y-6'>
