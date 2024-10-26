@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const TwentyFiveFiveClock = () => {
   const [breakLength, setBreakLength] = useState(5);
   const [sessionLength, setSessionLength] = useState(25);
   const [timeLeft, setTimeLeft] = useState(25 * 60);
   const [isRunning, setIsRunning] = useState(false);
-  const [mode, setMode] = useState("Session"); // Track if it's in session or break mode
+  const [mode, setMode] = useState("Session");
+  const audioRef = useRef(null);
 
   // Update timeLeft when sessionLength changes
   useEffect(() => {
@@ -18,15 +19,23 @@ const TwentyFiveFiveClock = () => {
       const interval = setInterval(() => {
         setTimeLeft((prev) => prev - 1);
       }, 1000);
+
       return () => clearInterval(interval);
     } else if (timeLeft === 0) {
-      if (mode === "Session") {
-        setMode("Break");
-        setTimeLeft(breakLength * 60);
-      } else {
-        setMode("Session");
-        setTimeLeft(sessionLength * 60);
+      if (audioRef.current) {
+        audioRef.current.play();
       }
+
+      const nextMode = mode === "Session" ? "Break" : "Session";
+      const nextTime = nextMode === "Session" ? sessionLength * 60 : breakLength * 60;
+
+      setTimeout(() => {
+        setMode(nextMode);
+        setTimeLeft(nextTime);
+        setIsRunning(true); // Start the next countdown
+      }, 2000); // Wait for 2 seconds before starting the next session/break
+
+      setIsRunning(false); // Stop the timer immediately
     }
   }, [isRunning, timeLeft, mode, breakLength, sessionLength]);
 
@@ -37,13 +46,16 @@ const TwentyFiveFiveClock = () => {
   };
 
   const handleStartPause = () => setIsRunning((prev) => !prev);
-
   const handleReset = () => {
-    setBreakLength(5);
-    setSessionLength(25);
-    setTimeLeft(25 * 60);
-    setIsRunning(false);
-    setMode("Session");
+    setIsRunning(false); // Stop any running timer
+    setBreakLength(5); // Reset break length to 5
+    setSessionLength(25); // Reset session length to 25
+    setTimeLeft(25 * 60); // Reset time left to default (25 minutes in seconds)
+    setMode("Session"); // Reset mode to Session
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0; // Reset the audio
+    }
   };
 
   const handleBreakDecrement = () => setBreakLength((prev) => Math.max(1, prev - 1));
@@ -55,7 +67,6 @@ const TwentyFiveFiveClock = () => {
     <div className='min-h-screen flex justify-center items-center p-4'>
       <div className='w-full max-w-lg p-4 rounded-3xl border space-y-8'>
         <h1 className='text-center'>25 + 5 Clock</h1>
-
         <div className='flex justify-evenly items-center border'>
           <div className='flex flex-col justify-center items-center gap-3'>
             <h3 id="break-label">Break Length</h3>
@@ -81,10 +92,11 @@ const TwentyFiveFiveClock = () => {
           <button id='start_stop' onClick={handleStartPause} className='mt-4 px-6 py-2 rounded-lg bg-blue-500 text-white'>
             {isRunning ? "Pause" : "Start"}
           </button>
-          <button id='reset' onClick={handleReset} className='mt-4 px-6 py-2 rounded-lg bg-blue-500 text-white'>
+          <button id="reset" onClick={handleReset} className='mt-4 px-6 py-2 rounded-lg bg-blue-500 text-white'>
             Reset
           </button>
         </div>
+        <audio id="beep" ref={audioRef} src="https://www.soundjay.com/buttons/sounds/beep-01a.mp3" />
       </div>
     </div>
   );
