@@ -44,32 +44,41 @@ const Calculator = () => {
     }
   };
 
-
-
-
   return (
-    <div className='min-h-screen flex justify-center items-center p-4'>
-      <div className='w-full max-w-lg p-4 rounded-3xl border border-indigo-500/10 shadow-xl shadow-indigo-600/5 space-y-8'>
-        <h2 className='text-sm text-gray-600'>{formula || '0'}</h2> {/* Formula Screen */}
-        <h2 id='display'>{display || '0'}</h2>
-        <button id='zero' className='p-4 border' onClick={() => handleClick('0')}>0</button>
-        <button id='one' className='p-4 border' onClick={() => handleClick('1')}>1</button>
-        <button id='two' className='p-4 border' onClick={() => handleClick('2')}>2</button>
-        <button id='three' className='p-4 border' onClick={() => handleClick('3')}>3</button>
-        <button id='four' className='p-4 border' onClick={() => handleClick('4')}>4</button>
-        <button id='five' className='p-4 border' onClick={() => handleClick('5')}>5</button>
-        <button id='six' className='p-4 border' onClick={() => handleClick('6')}>6</button>
-        <button id='seven' className='p-4 border' onClick={() => handleClick('7')}>7</button>
-        <button id='eight' className='p-4 border' onClick={() => handleClick('8')}>8</button>
-        <button id='nine' className='p-4 border' onClick={() => handleClick('9')}>9</button>
-        <button id='decimal' className='p-4 border' onClick={() => handleClick('.')}>.</button>
-        <button id='add' className='p-4 border' onClick={() => handleClick('+')}>+</button>
-        <button id='multiply' className='p-4 border' onClick={() => handleClick('*')}>x</button>
-        <button id='subtract' className='p-4 border' onClick={() => handleClick('-')}>-</button>
-        <button id='divide' className='p-4 border' onClick={() => handleClick('/')}>/</button>
-        <button id="equals" className='p-4 border' onClick={() => handleClick('=')}>=</button>
-        <button id='clear' className='p-4 border' onClick={() => handleClick('C')}>C</button>
+    <div className='min-h-screen flex flex-col justify-center items-center p-4 gap-8'>
+      <h1 className='text-center text-gray-800 font-semibold'>JS Calculator</h1>
+      <div className='w-full max-w-sm p-4 rounded-3xl border border-indigo-500/10 shadow-xl shadow-indigo-600/5 space-y-4'>
+
+        {/* Displays */}
+        <div className='bg-indigo-100/10 border rounded-2xl py-2 px-4 flex flex-col items-end gap-2'>
+          <h2 className='text-sm text-gray-600'>{formula || '_'}</h2> {/* Formula Screen */}
+          <h2 id='display' className='text-gray-700'>{display || '0'}</h2>
+        </div>
+        {/* Buttons */}
+        <div className='grid grid-cols-4 gap-2'>
+          <button id='clear' className='col-span-2 p-4 border' onClick={() => handleClick('C')}>AC</button>
+          <button id='divide' className='p-4 border' onClick={() => handleClick('/')}>/</button>
+          <button id='multiply' className='p-4 border' onClick={() => handleClick('*')}>x</button>
+          <button id='seven' className='p-4 border' onClick={() => handleClick('7')}>7</button>
+          <button id='eight' className='p-4 border' onClick={() => handleClick('8')}>8</button>
+          <button id='nine' className='p-4 border' onClick={() => handleClick('9')}>9</button>
+          <button id='subtract' className='p-4 border' onClick={() => handleClick('-')}>-</button>
+          <button id='four' className='p-4 border' onClick={() => handleClick('4')}>4</button>
+          <button id='five' className='p-4 border' onClick={() => handleClick('5')}>5</button>
+          <button id='six' className='p-4 border' onClick={() => handleClick('6')}>6</button>
+          <button id='add' className='p-4 border' onClick={() => handleClick('+')}>+</button>
+
+          <button id='one' className='p-4 border' onClick={() => handleClick('1')}>1</button>
+          <button id='two' className='p-4 border' onClick={() => handleClick('2')}>2</button>
+          <button id='three' className='p-4 border' onClick={() => handleClick('3')}>3</button>
+          <button id="equals" className='p-4 border row-span-2' onClick={() => handleClick('=')}>=</button>
+          <button id='zero' className='p-4 border col-span-2' onClick={() => handleClick('0')}>0</button>
+          <button id='decimal' className='p-4 border' onClick={() => handleClick('.')}>.</button>
+
+        </div>
       </div>
+      <p className='text-center text-xs text-gray-700'>Crafted with <span className='text-indigo-500'>
+        ♥</span> by Frederick Moreno</p>
     </div>
   );
 };
