@@ -15,6 +15,9 @@ const Home = () => {
       <Link to='/25-5-clock'>
         25 + 5 Clock
       </Link>
+      <Link to='/calculator'>
+        Calculator
+      </Link>
     </div>
   )
 }
