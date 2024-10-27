@@ -56,24 +56,24 @@ const Calculator = () => {
         </div>
         {/* Buttons */}
         <div className='grid grid-cols-4 gap-2'>
-          <button id='clear' className='col-span-2 p-4 border' onClick={() => handleClick('C')}>AC</button>
-          <button id='divide' className='p-4 border' onClick={() => handleClick('/')}>/</button>
-          <button id='multiply' className='p-4 border' onClick={() => handleClick('*')}>x</button>
-          <button id='seven' className='p-4 border' onClick={() => handleClick('7')}>7</button>
-          <button id='eight' className='p-4 border' onClick={() => handleClick('8')}>8</button>
-          <button id='nine' className='p-4 border' onClick={() => handleClick('9')}>9</button>
-          <button id='subtract' className='p-4 border' onClick={() => handleClick('-')}>-</button>
-          <button id='four' className='p-4 border' onClick={() => handleClick('4')}>4</button>
-          <button id='five' className='p-4 border' onClick={() => handleClick('5')}>5</button>
-          <button id='six' className='p-4 border' onClick={() => handleClick('6')}>6</button>
-          <button id='add' className='p-4 border' onClick={() => handleClick('+')}>+</button>
+          <button id='clear' className='col-span-2 p-4 border border-red-200/40 rounded-lg bg-red-300/30 active:bg-red-300/50 transition duration-200 ease-in-out' onClick={() => handleClick('C')}>AC</button>
+          <button id='divide' className='p-4 border border-indigo-200/40 rounded-lg bg-indigo-100/50' onClick={() => handleClick('/')}>/</button>
+          <button id='multiply' className='p-4 border border-indigo-200/40 rounded-lg bg-indigo-100/50' onClick={() => handleClick('*')}>x</button>
+          <button id='seven' className='p-4 border border-indigo-200/40 rounded-lg bg-indigo-50/30' onClick={() => handleClick('7')}>7</button>
+          <button id='eight' className='p-4 border border-indigo-200/40 rounded-lg bg-indigo-50/30' onClick={() => handleClick('8')}>8</button>
+          <button id='nine' className='p-4 border border-indigo-200/40 rounded-lg bg-indigo-50/30' onClick={() => handleClick('9')}>9</button>
+          <button id='subtract' className='p-4 border border-indigo-200/40 rounded-lg bg-indigo-100/50' onClick={() => handleClick('-')}>-</button>
+          <button id='four' className='p-4 border border-indigo-200/40 rounded-lg bg-indigo-50/30' onClick={() => handleClick('4')}>4</button>
+          <button id='five' className='p-4 border border-indigo-200/40 rounded-lg bg-indigo-50/30' onClick={() => handleClick('5')}>5</button>
+          <button id='six' className='p-4 border border-indigo-200/40 rounded-lg bg-indigo-50/30' onClick={() => handleClick('6')}>6</button>
+          <button id='add' className='p-4 border border-indigo-200/40 rounded-lg bg-indigo-100/50' onClick={() => handleClick('+')}>+</button>
 
-          <button id='one' className='p-4 border' onClick={() => handleClick('1')}>1</button>
-          <button id='two' className='p-4 border' onClick={() => handleClick('2')}>2</button>
-          <button id='three' className='p-4 border' onClick={() => handleClick('3')}>3</button>
-          <button id="equals" className='p-4 border row-span-2' onClick={() => handleClick('=')}>=</button>
-          <button id='zero' className='p-4 border col-span-2' onClick={() => handleClick('0')}>0</button>
-          <button id='decimal' className='p-4 border' onClick={() => handleClick('.')}>.</button>
+          <button id='one' className='p-4 border border-indigo-200/40 rounded-lg bg-indigo-50/30' onClick={() => handleClick('1')}>1</button>
+          <button id='two' className='p-4 border border-indigo-200/40 rounded-lg bg-indigo-50/30' onClick={() => handleClick('2')}>2</button>
+          <button id='three' className='p-4 border border-indigo-200/40 rounded-lg bg-indigo-50/30' onClick={() => handleClick('3')}>3</button>
+          <button id="equals" className='p-4 border border-indigo-200/40 rounded-lg row-span-2 bg-white/40' onClick={() => handleClick('=')}>=</button>
+          <button id='zero' className='p-4 col-span-2 border border-indigo-200/40 rounded-lg bg-indigo-50/30' onClick={() => handleClick('0')}>0</button>
+          <button id='decimal' className='p-4 border border-indigo-200/40 rounded-lg bg-indigo-50/30' onClick={() => handleClick('.')}>.</button>
 
         </div>
       </div>
